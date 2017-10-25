@@ -8,7 +8,7 @@ This software is absolutely free. U can do whatever you want with`em (but do no 
 
 1.1. cd to mng-4416-reproducer/server-app/env-modules/child-with-profile-disabled/
 1.2. mvn initialize:
-
+```
 [INFO] ------------------------------------------------------------------------
 [INFO] Building child-with-profile-disabled 3.20.0
 [INFO] ------------------------------------------------------------------------
@@ -28,12 +28,12 @@ single-execution-in-parent-pom
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-
+```
 U can see expected plugin execution ordering: grandparent executions first, parent executions after.
 
 1.3. cd to mng-4416-reproducer/server-app/env-modules/child-with-profile-enabled/
 1.4. mvn initialize:
-
+```
 [INFO] ------------------------------------------------------------------------
 [INFO] Building child-with-profile-enabled 3.20.0
 [INFO] ------------------------------------------------------------------------
@@ -53,7 +53,7 @@ single-execution-in-parent-pom
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-
+```
 As you see this is affected execution order: parent first, grandparent after. It doesn`t metter, what grandparent-parent
 order consider to correct, but order _must not_ be changed when profile activated!
 
