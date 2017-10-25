@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<artifactId>grandparent</artifactId>
+		<groupId>ru.argustelecom.test</groupId>
+		<version>3.20.0</version>
+		<relativePath>../grandparent/pom.xml</relativePath>
+	</parent>
+
+
+	<groupId>ru.argustelecom.test</groupId>
+	<artifactId>parent</artifactId>
+	<packaging>pom</packaging>
+	<name>parent</name>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.gmaven</groupId>
+				<artifactId>gmaven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>single-execution-in-parent-pom</id>
+						<phase>initialize</phase>
+						<goals>
+							<goal>execute</goal>
+						</goals>
+						<configuration>
+							<source>
+								println "single-execution-in-parent-pom";
+							</source>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+		</plugins>
+	</build>
+
+	<profiles>
+		<profile>
+			<id>test-profile</id>
+			<activation>
+				<file>
+					<exists>1</exists>
+				</file>
+			</activation>
+
+
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-compiler-plugin</artifactId>
+						<version>3.1</version>
+						<configuration>
+							<source>1.8</source>
+							<target>1.8</target>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>	
+		</profile>
+	</profiles>
+</project>
